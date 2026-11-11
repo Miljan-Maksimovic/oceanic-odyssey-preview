@@ -1039,11 +1039,27 @@ svg { display: block; }
       <div class="find-panel">
       <form class="find-form" id="find-form" action="fleet.html" method="get" role="search">
         <div class="find-head">
-          <h2 id="qualifier-title">Find Your Yacht</h2>
+          <h2 id="qualifier-title">Your perfect yacht, a few taps away.</h2>
           <p class="find-sub">Set your date and budget. We'll handle the rest.</p>
         </div>
         <div class="find-grid">
           <div class="find-fields">
+          <div class="find-field">
+            <label for="fy-date">Date</label>
+            <input id="fy-date" name="date" type="date">
+          </div>
+          <div class="find-field">
+            <label for="fy-budget">Budget</label>
+            <div class="find-select">
+            <select id="fy-budget" name="budget">
+              <option value="">Any budget</option>
+              <option value="100000">Up to 100,000 THB</option>
+              <option value="200000">Up to 200,000 THB</option>
+              <option value="350000">Up to 350,000 THB</option>
+              <option value="500000">Up to 500,000 THB</option>
+            </select>
+            </div>
+          </div>
           <div class="find-field">
             <label for="fy-type">Yacht type</label>
             <div class="find-select">
@@ -1067,14 +1083,6 @@ svg { display: block; }
               <option value="100">100 ft and up</option>
             </select>
             </div>
-          </div>
-          <div class="find-field">
-            <label for="fy-budget">Budget</label>
-            <input id="fy-budget" name="budget" type="text" inputmode="numeric" autocomplete="off" placeholder="In THB">
-          </div>
-          <div class="find-field">
-            <label for="fy-date">Date</label>
-            <input id="fy-date" name="date" type="date">
           </div>
           </div>
         </div>
