@@ -783,7 +783,7 @@ svg { display: block; }
 @media (min-width: 1000px) {
   .find-form { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 14px; align-items: end; }
   .find-head { grid-column: 1; grid-row: 1; }
-  .find-form .find-help { grid-column: 2; grid-row: 1; margin: 0; text-align: right; }
+  .find-form .find-help { grid-column: 2; grid-row: 3; margin: 6px 0 0; text-align: center; }   
   .find-grid { grid-column: 1; grid-row: 2; margin-top: 24px; }
   .find-form .find-go { grid-column: 2; grid-row: 2; width: auto; min-width: 210px; height: 48px; min-height: 48px; margin: 0; padding: 0 26px; }
   .find-panel { padding: 28px 32px 30px; }
@@ -988,7 +988,12 @@ svg { display: block; }
   .of-brand { grid-column: auto; }
 }
 </style>
-</head>
+<style id="preview-logo">
+.home-mark img, .logo-mark { width: auto !important; height: 26px !important; }
+.of-logo img { width: auto !important; height: 40px !important; }
+@media (min-width: 700px) { .home-mark img, .logo-mark { height: 36px !important; } }
+@media (min-width: 1050px) { .home-mark img, .logo-mark { height: 40px !important; } }
+</style></head>
 <body>
   <svg class="spec-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden"><symbol id="spec-length" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><g transform="rotate(-35 12 12)"><rect x="2.5" y="8" width="19" height="8" rx="1.5"/><path d="M7 8v3m4-3v4m4-4v3m4-3v4"/></g></g></symbol><symbol id="spec-year" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 3v4m8-4v4M4 10h16m-12 4h2m4 0h2m-8 3h2m4 0h2"/></g></symbol><symbol id="spec-cabins" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="18" rx="1"/><path d="M3 21h18m-7-9h1"/></g></symbol><symbol id="spec-guests" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="7" r="3"/><path d="M2 21v-3a6 6 0 0 1 12 0v3m2-7a5 5 0 0 1 6 5v2"/><circle cx="17" cy="8" r="2.5"/></g></symbol><symbol id="spec-overnight" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 13.2A8.8 8.8 0 0 1 10.8 3.4a8.8 8.8 0 1 0 9.8 9.8Z"/></g></symbol></svg>
 <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true">
@@ -1011,7 +1016,7 @@ svg { display: block; }
 </aside>
 
   <nav class="site-nav" aria-label="Main navigation">
-    <a class="home-mark" href="#" aria-label="Home"><img src="assets/logo-nav.png" srcset="assets/logo-nav-480.webp 480w" sizes="100vw" width="540" height="369" alt="" decoding="async"></a>
+    <a class="home-mark" href="#" aria-label="Home"><picture><source media="(max-width: 699.98px)" srcset="assets/logo-c-m.png"><img src="assets/logo-c-h.png" width="274" height="43" alt="Oceanic Odyssey" decoding="async"></picture></a>
     <div class="nav-links"><a class="nav-wide" href="index.html" aria-current="page">Home</a><a href="fleet.html">Yacht charter</a><a href="phuket-island-hopping-private-yacht.html">Destinations</a><a href="questions.html">Questions</a><a class="nav-wide" href="#contact">Contact</a></div>
     </nav>
 
@@ -1359,7 +1364,7 @@ svg { display: block; }
 <footer class="of-footer">
   <div class="wrap of-grid">
     <div class="of-brand">
-      <a class="of-logo" href="index.html" aria-label="Oceanic Odyssey, home"><img src="assets/logo-nav.png" srcset="assets/logo-nav-480.webp 480w" sizes="94px" width="540" height="369" alt="" loading="lazy" decoding="async"></a>
+      <a class="of-logo" href="index.html" aria-label="Oceanic Odyssey, home"><img src="assets/logo-c-h.png" width="274" height="43" alt="Oceanic Odyssey" loading="lazy" decoding="async"></a>
       <p>Private yacht charter in Phuket, for your group only.</p>
     </div>
     <nav class="of-col" aria-label="Footer">
