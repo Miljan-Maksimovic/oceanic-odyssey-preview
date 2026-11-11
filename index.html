@@ -733,36 +733,51 @@ svg { display: block; }
 .hs-onboard .section-heading h2 { color: #fff; }
 .hs-onboard .section-label { color: var(--sea); }
 .hs-onboard .section-heading .hs-onboard-lede { max-width: 600px; margin-top: 14px; color: #dbe9ec; opacity: 1; }
-.og { --h: 210px; display: grid; gap: 10px; margin-top: 30px; overflow: hidden; }
-.og-row { display: flex; gap: 10px; width: max-content; will-change: transform; }
-.og-tile { flex: none; height: var(--h); margin: 0; overflow: hidden; border-radius: 4px; background: #0d2c3d; }
+.og { --h: 210px; --gap: 10px; display: grid; gap: var(--gap); margin-top: 30px; overflow: hidden; }
+.og-row { display: flex; width: max-content; will-change: transform; animation: og-left var(--og-dur, 60s) linear infinite; }
+.og-b { animation-name: og-right; }
+@keyframes og-left { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-50%, 0, 0); } }
+@keyframes og-right { from { transform: translate3d(-50%, 0, 0); } to { transform: translate3d(0, 0, 0); } }
+.og:hover .og-row, .og.og-off .og-row { animation-play-state: paused; }
+
+.og-tile { flex: none; height: var(--h); margin: 0 var(--gap) 0 0; overflow: hidden; border-radius: 4px; background: #0d2c3d; }
 .og-p { width: calc(var(--h) * .75); }
 .og-l { width: calc(var(--h) * 1.5); }
 .og-tile img, .og-tile video { display: block; width: 100%; height: 100%; object-fit: cover; }
 .og.og-still { overflow-x: auto; }
+.og-still .og-row { animation: none; }
+.og-still .og-copy { display: none; }
 .hs-reviews { background: #fff; }
-.rv-grid { display: grid; gap: 14px; margin-top: 30px; }
 
-@media (max-width: 899.98px) {
-  .rv-grid { grid-auto-flow: column; grid-auto-columns: 84%; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
-    margin-inline: -24px; padding: 0 24px 6px; scroll-padding-inline: 24px; }
-  .rv-grid::-webkit-scrollbar { display: none; }
-  .rv-card { scroll-snap-align: start; }
-}
-.rv-card { display: flex; flex-direction: column; margin: 0; padding: 24px 22px; border: 1px solid #DCE7EA; border-radius: 6px; background: #fff; }
-.rv-stars { display: flex; gap: 3px; color: var(--navy); }
-.rv-stars svg { width: 17px; height: 17px; fill: currentColor; }
-.rv-card blockquote { flex: 1; margin: 16px 0 0; }
+.rv-grid { display: grid; gap: 14px; margin-top: 30px; align-items: start; }
+.rv-card { margin: 0; padding: 26px 24px 24px; border: 1px solid #DCE7EA; border-radius: 6px; background: #fff; }
+.rv-card blockquote { margin: 0; }
 .rv-card blockquote p { margin: 0; color: var(--ink); font-size: 17px; line-height: 1.65; }
-.rv-card figcaption { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; margin-top: 20px; padding-top: 16px; border-top: 1px solid #E7EEF0; }
-.rv-name { color: var(--navy); font-weight: 700; }
-.rv-src { color: var(--muted); font-size: 14px; }
+.rv-card figcaption { display: flex; align-items: center; gap: 12px; margin-top: 22px; }
+.rv-av { flex: none; display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; background: var(--navy); color: #fff; font-weight: 700; font-size: 16px; }
+.rv-who { display: grid; gap: 4px; min-width: 0; }
+.rv-name { color: var(--navy); font-weight: 700; line-height: 1.3; }
+.rv-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
+.rv-stars { display: flex; gap: 2px; color: var(--navy); }
+.rv-stars svg { width: 14px; height: 14px; fill: currentColor; }
+.rv-src { color: var(--muted); font-size: 13px; }
+.rv-feature { position: relative; padding: 34px 26px 28px; border: 0; background: var(--navy); }
+.rv-feature::before { content: "\201C"; display: block; height: 46px; margin-bottom: 6px; color: var(--sea); font: 400 86px/1 var(--serif); }
+.rv-feature blockquote p { color: #fff; font-family: var(--serif); font-size: 21px; line-height: 1.55; }
+.rv-feature .rv-av { background: var(--sea); color: var(--navy); }
+.rv-feature .rv-name { color: #fff; }
+.rv-feature .rv-stars { color: var(--sea); }
+.rv-feature .rv-src { color: #b7cbd1; }
 .hs-reviews .hs-more { margin-top: 26px; }
 @media (min-width: 700px) {
-  .og { --h: 280px; gap: 14px; margin-top: 40px; }
-  .og-row { gap: 14px; }
+  .og { --h: 280px; --gap: 14px; margin-top: 40px; }
 }
-@media (min-width: 900px) { .rv-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 40px; } }
+@media (min-width: 900px) {
+  .rv-grid { grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 20px; margin-top: 40px; align-items: stretch; }
+  .rv-card { display: flex; flex-direction: column; justify-content: space-between; }
+  .rv-feature { grid-row: span 2; padding: 46px 44px 40px; }
+  .rv-feature blockquote p { font-size: 25px; }
+}
 @media (min-width: 1100px) { .og { --h: 340px; } }
 
 @media (min-width: 1000px) {
@@ -1167,6 +1182,15 @@ svg { display: block; }
           <figure class="og-tile og-p"><img src="assets/home/onboard/dancing.jpg" srcset="assets/home/onboard/dancing-480.webp 480w" width="540" height="720" sizes="(min-width: 1100px) 255px, (min-width: 700px) 210px, 150px" alt="Three friends dancing on deck, green islands behind" loading="lazy" decoding="async"></figure>
           <figure class="og-tile og-p"><img src="assets/home/onboard/golf.jpg" srcset="assets/home/onboard/golf-480.webp 480w" width="540" height="720" sizes="(min-width: 1100px) 255px, (min-width: 700px) 210px, 150px" alt="A guest drives a golf ball off the bow, crew watching" loading="lazy" decoding="async"></figure>
           <figure class="og-tile og-p"><img src="assets/home/onboard/superyacht.jpg" srcset="assets/home/onboard/superyacht-480.webp 480w" width="540" height="720" sizes="(min-width: 1100px) 255px, (min-width: 700px) 210px, 150px" alt="A superyacht at anchor under the cliffs" loading="lazy" decoding="async"></figure>
+          <figure aria-hidden="true" class="og-copy og-tile og-p"><video class="og-video" muted loop playsinline preload="none" poster="assets/home/onboard/dusk-leap.jpg" data-src="assets/home/onboard/dusk-leap.mp4" data-label="Three friends leap off the side deck at sunset"></video></figure>
+          <figure aria-hidden="true" class="og-copy og-tile og-l"><img src="assets/home/onboard/lagoon.jpg" srcset="assets/home/onboard/lagoon-480.webp 480w, assets/home/onboard/lagoon-800.webp 800w" width="1080" height="720" sizes="(min-width: 1100px) 510px, (min-width: 700px) 420px, 300px" data-alt="Turquoise lagoon between limestone cliffs, Phi Phi" loading="lazy" decoding="async"></figure>
+          <figure aria-hidden="true" class="og-copy og-tile og-p"><img src="assets/home/onboard/deck-pool.jpg" srcset="assets/home/onboard/deck-pool-480.webp 480w" width="540" height="720" sizes="(min-width: 1100px) 255px, (min-width: 700px) 210px, 150px" data-alt="The pool on the yacht&#x27;s aft deck, open sea behind" loading="lazy" decoding="async"></figure>
+          <figure aria-hidden="true" class="og-copy og-tile og-l"><img src="assets/home/onboard/backflip.jpg" srcset="assets/home/onboard/backflip-480.webp 480w, assets/home/onboard/backflip-800.webp 800w" width="1080" height="720" sizes="(min-width: 1100px) 510px, (min-width: 700px) 420px, 300px" data-alt="A guest backflips off the boat into the lagoon" loading="lazy" decoding="async"></figure>
+          <figure aria-hidden="true" class="og-copy og-tile og-p"><video class="og-video" muted loop playsinline preload="none" poster="assets/home/onboard/paddleboard.jpg" data-src="assets/home/onboard/paddleboard.mp4" data-label="A swimmer splashes out to a paddleboard in Maya Bay"></video></figure>
+          <figure aria-hidden="true" class="og-copy og-tile og-l"><img src="assets/home/onboard/cave-snorkel.jpg" srcset="assets/home/onboard/cave-snorkel-480.webp 480w, assets/home/onboard/cave-snorkel-800.webp 800w" width="1080" height="720" sizes="(min-width: 1100px) 510px, (min-width: 700px) 420px, 300px" data-alt="Snorkelling under a limestone overhang" loading="lazy" decoding="async"></figure>
+          <figure aria-hidden="true" class="og-copy og-tile og-p"><img src="assets/home/onboard/dancing.jpg" srcset="assets/home/onboard/dancing-480.webp 480w" width="540" height="720" sizes="(min-width: 1100px) 255px, (min-width: 700px) 210px, 150px" data-alt="Three friends dancing on deck, green islands behind" loading="lazy" decoding="async"></figure>
+          <figure aria-hidden="true" class="og-copy og-tile og-p"><img src="assets/home/onboard/golf.jpg" srcset="assets/home/onboard/golf-480.webp 480w" width="540" height="720" sizes="(min-width: 1100px) 255px, (min-width: 700px) 210px, 150px" data-alt="A guest drives a golf ball off the bow, crew watching" loading="lazy" decoding="async"></figure>
+          <figure aria-hidden="true" class="og-copy og-tile og-p"><img src="assets/home/onboard/superyacht.jpg" srcset="assets/home/onboard/superyacht-480.webp 480w" width="540" height="720" sizes="(min-width: 1100px) 255px, (min-width: 700px) 210px, 150px" data-alt="A superyacht at anchor under the cliffs" loading="lazy" decoding="async"></figure>
       </div>
       <div class="og-row og-b">
           <figure class="og-tile og-p"><video class="og-video" muted loop playsinline preload="none" poster="assets/home/onboard/side-deck.jpg" data-src="assets/home/onboard/side-deck.mp4" aria-label="Walking the teak side deck at speed"></video></figure>
@@ -1178,46 +1202,49 @@ svg { display: block; }
           <figure class="og-tile og-p"><img src="assets/home/onboard/cliffs.jpg" srcset="assets/home/onboard/cliffs-480.webp 480w" width="540" height="720" sizes="(min-width: 1100px) 255px, (min-width: 700px) 210px, 150px" alt="Phi Phi cliffs from the water" loading="lazy" decoding="async"></figure>
           <figure class="og-tile og-p"><img src="assets/home/onboard/jet-ski-wake.jpg" srcset="assets/home/onboard/jet-ski-wake-480.webp 480w" width="540" height="720" sizes="(min-width: 1100px) 255px, (min-width: 700px) 210px, 150px" alt="A jet ski cutting across the wake" loading="lazy" decoding="async"></figure>
           <figure class="og-tile og-p"><img src="assets/home/onboard/bay.jpg" srcset="assets/home/onboard/bay-480.webp 480w" width="540" height="720" sizes="(min-width: 1100px) 255px, (min-width: 700px) 210px, 150px" alt="The bay from the deck, beach and cliffs" loading="lazy" decoding="async"></figure>
+          <figure aria-hidden="true" class="og-copy og-tile og-p"><video class="og-video" muted loop playsinline preload="none" poster="assets/home/onboard/side-deck.jpg" data-src="assets/home/onboard/side-deck.mp4" data-label="Walking the teak side deck at speed"></video></figure>
+          <figure aria-hidden="true" class="og-copy og-tile og-l"><img src="assets/home/onboard/swim.jpg" srcset="assets/home/onboard/swim-480.webp 480w, assets/home/onboard/swim-800.webp 800w" width="1080" height="720" sizes="(min-width: 1100px) 510px, (min-width: 700px) 420px, 300px" data-alt="Friends swimming off the boat in the lagoon" loading="lazy" decoding="async"></figure>
+          <figure aria-hidden="true" class="og-copy og-tile og-p"><img src="assets/home/onboard/sunbed.jpg" srcset="assets/home/onboard/sunbed-480.webp 480w" width="540" height="720" sizes="(min-width: 1100px) 255px, (min-width: 700px) 210px, 150px" data-alt="The striped sunbed under the umbrella on the upper deck" loading="lazy" decoding="async"></figure>
+          <figure aria-hidden="true" class="og-copy og-tile og-l"><img src="assets/home/onboard/stairs.jpg" srcset="assets/home/onboard/stairs-480.webp 480w, assets/home/onboard/stairs-800.webp 800w" width="1080" height="720" sizes="(min-width: 1100px) 510px, (min-width: 700px) 420px, 300px" data-alt="Stairs down to the water, cliffs ahead" loading="lazy" decoding="async"></figure>
+          <figure aria-hidden="true" class="og-copy og-tile og-p"><img src="assets/home/onboard/jet-skis.jpg" srcset="assets/home/onboard/jet-skis-480.webp 480w" width="540" height="720" sizes="(min-width: 1100px) 255px, (min-width: 700px) 210px, 150px" data-alt="Crew launch the jet skis from the swim platform" loading="lazy" decoding="async"></figure>
+          <figure aria-hidden="true" class="og-copy og-tile og-l"><img src="assets/home/onboard/bow.jpg" srcset="assets/home/onboard/bow-480.webp 480w, assets/home/onboard/bow-800.webp 800w" width="1080" height="720" sizes="(min-width: 1100px) 510px, (min-width: 700px) 420px, 300px" data-alt="Two guests on the bow, open water ahead" loading="lazy" decoding="async"></figure>
+          <figure aria-hidden="true" class="og-copy og-tile og-p"><img src="assets/home/onboard/cliffs.jpg" srcset="assets/home/onboard/cliffs-480.webp 480w" width="540" height="720" sizes="(min-width: 1100px) 255px, (min-width: 700px) 210px, 150px" data-alt="Phi Phi cliffs from the water" loading="lazy" decoding="async"></figure>
+          <figure aria-hidden="true" class="og-copy og-tile og-p"><img src="assets/home/onboard/jet-ski-wake.jpg" srcset="assets/home/onboard/jet-ski-wake-480.webp 480w" width="540" height="720" sizes="(min-width: 1100px) 255px, (min-width: 700px) 210px, 150px" data-alt="A jet ski cutting across the wake" loading="lazy" decoding="async"></figure>
+          <figure aria-hidden="true" class="og-copy og-tile og-p"><img src="assets/home/onboard/bay.jpg" srcset="assets/home/onboard/bay-480.webp 480w" width="540" height="720" sizes="(min-width: 1100px) 255px, (min-width: 700px) 210px, 150px" data-alt="The bay from the deck, beach and cliffs" loading="lazy" decoding="async"></figure>
       </div>
     </div>
     <script>(function () {
   var g = document.querySelector(".og");
   if (!g) return;
-  var rows = g.querySelectorAll(".og-row");
   var still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (still) g.classList.add("og-still");
-  var vids = g.querySelectorAll("video[data-src]");
-  if ("IntersectionObserver" in window) {
-    var io = new IntersectionObserver(function (es) {
-      es.forEach(function (e) {
-        var v = e.target;
-        if (e.isIntersecting) {
-          if (!v.getAttribute("src")) v.src = v.getAttribute("data-src");
-          if (!still) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
-        } else { v.pause(); }
-      });
-    }, {rootMargin: "200px 0px"});
-    Array.prototype.forEach.call(vids, function (v) { io.observe(v); });
+  if (still) { g.classList.add("og-still"); }
+  function pace() {
+    var speed = window.innerWidth < 700 ? 28 : 40;   // pixels a second
+    Array.prototype.forEach.call(g.querySelectorAll(".og-row"), function (row) {
+      row.style.setProperty("--og-dur", (row.scrollWidth / 2 / speed).toFixed(1) + "s");
+    });
   }
-  if (still) return;
-  var widths = [];
-  function measure() {
-    widths = Array.prototype.map.call(rows, function (row) { return Math.max(0, row.scrollWidth - g.clientWidth); });
-    move();
-  }
-  function move() {
-    var r = g.getBoundingClientRect(), vh = window.innerHeight;
-    if (r.bottom < -100 || r.top > vh + 100) return;
-    var p = (vh - r.top) / (vh + r.height);
-    p = p < 0 ? 0 : p > 1 ? 1 : p;
-    for (var i = 0; i < rows.length; i++) {
-      var x = i % 2 ? -widths[i] * (1 - p) : -widths[i] * p;
-      rows[i].style.transform = "translate3d(" + x.toFixed(1) + "px,0,0)";
+  pace();
+  window.addEventListener("resize", pace);
+  if (!("IntersectionObserver" in window)) return;
+  var warm = false;
+  new IntersectionObserver(function (es) {
+    g.classList.toggle("og-off", !es[0].isIntersecting);
+    if (es[0].isIntersecting && !warm) {
+      warm = true;
+      Array.prototype.forEach.call(g.querySelectorAll("img[loading=lazy]"), function (im) { im.loading = "eager"; });
     }
-  }
-  window.addEventListener("scroll", move, {passive: true});
-  window.addEventListener("resize", measure);
-  measure();
+  }, {rootMargin: "600px 0px"}).observe(g);
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      var v = e.target;
+      if (e.isIntersecting) {
+        if (!v.getAttribute("src")) v.src = v.getAttribute("data-src");
+        if (!still) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+      } else { v.pause(); }
+    });
+  }, {rootMargin: "100px"});
+  Array.prototype.forEach.call(g.querySelectorAll("video[data-src]"), function (v) { io.observe(v); });
 })();</script>
   </section>
 
@@ -1228,20 +1255,20 @@ svg { display: block; }
         <h2 id="hs-reviews-title">Five stars on Google.</h2>
       </header>
       <div class="rv-grid">
-        <figure class="rv-card">
-          <div class="rv-stars" role="img" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.8 5.8 6.4.9-4.6 4.5 1.1 6.3L12 17.3l-5.7 3 1.1-6.3-4.6-4.5 6.4-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.8 5.8 6.4.9-4.6 4.5 1.1 6.3L12 17.3l-5.7 3 1.1-6.3-4.6-4.5 6.4-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.8 5.8 6.4.9-4.6 4.5 1.1 6.3L12 17.3l-5.7 3 1.1-6.3-4.6-4.5 6.4-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.8 5.8 6.4.9-4.6 4.5 1.1 6.3L12 17.3l-5.7 3 1.1-6.3-4.6-4.5 6.4-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.8 5.8 6.4.9-4.6 4.5 1.1 6.3L12 17.3l-5.7 3 1.1-6.3-4.6-4.5 6.4-.9z"/></svg></div>
-          <blockquote><p>Thank you for an AMAZING day out. The trip exceeded expectation. Would highly recommend this company to anyone wanting a fantastic day out exploring the waters near Phuket.</p></blockquote>
-          <figcaption><span class="rv-name">Sam L.</span><span class="rv-src">Google review</span></figcaption>
-        </figure>
-        <figure class="rv-card">
-          <div class="rv-stars" role="img" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.8 5.8 6.4.9-4.6 4.5 1.1 6.3L12 17.3l-5.7 3 1.1-6.3-4.6-4.5 6.4-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.8 5.8 6.4.9-4.6 4.5 1.1 6.3L12 17.3l-5.7 3 1.1-6.3-4.6-4.5 6.4-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.8 5.8 6.4.9-4.6 4.5 1.1 6.3L12 17.3l-5.7 3 1.1-6.3-4.6-4.5 6.4-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.8 5.8 6.4.9-4.6 4.5 1.1 6.3L12 17.3l-5.7 3 1.1-6.3-4.6-4.5 6.4-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.8 5.8 6.4.9-4.6 4.5 1.1 6.3L12 17.3l-5.7 3 1.1-6.3-4.6-4.5 6.4-.9z"/></svg></div>
+        <figure class="rv-card rv-feature">
           <blockquote><p>We had an incredible day exploring the stunning islands around Phuket on a private boat. The crew was friendly, professional, and went above and beyond to make the experience special. … Highly recommended for anyone looking to escape the crowds and see the best of Phuket in style!</p></blockquote>
-          <figcaption><span class="rv-name">Sangtip P.</span><span class="rv-src">Google review</span></figcaption>
+          <figcaption><span class="rv-av" aria-hidden="true">S</span><span class="rv-who"><span class="rv-name">Sangtip P.</span>
+            <span class="rv-meta"><span class="rv-stars" role="img" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.8 5.8 6.4.9-4.6 4.5 1.1 6.3L12 17.3l-5.7 3 1.1-6.3-4.6-4.5 6.4-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.8 5.8 6.4.9-4.6 4.5 1.1 6.3L12 17.3l-5.7 3 1.1-6.3-4.6-4.5 6.4-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.8 5.8 6.4.9-4.6 4.5 1.1 6.3L12 17.3l-5.7 3 1.1-6.3-4.6-4.5 6.4-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.8 5.8 6.4.9-4.6 4.5 1.1 6.3L12 17.3l-5.7 3 1.1-6.3-4.6-4.5 6.4-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.8 5.8 6.4.9-4.6 4.5 1.1 6.3L12 17.3l-5.7 3 1.1-6.3-4.6-4.5 6.4-.9z"/></svg></span><span class="rv-src">Google review</span></span></span></figcaption>
         </figure>
         <figure class="rv-card">
-          <div class="rv-stars" role="img" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.8 5.8 6.4.9-4.6 4.5 1.1 6.3L12 17.3l-5.7 3 1.1-6.3-4.6-4.5 6.4-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.8 5.8 6.4.9-4.6 4.5 1.1 6.3L12 17.3l-5.7 3 1.1-6.3-4.6-4.5 6.4-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.8 5.8 6.4.9-4.6 4.5 1.1 6.3L12 17.3l-5.7 3 1.1-6.3-4.6-4.5 6.4-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.8 5.8 6.4.9-4.6 4.5 1.1 6.3L12 17.3l-5.7 3 1.1-6.3-4.6-4.5 6.4-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.8 5.8 6.4.9-4.6 4.5 1.1 6.3L12 17.3l-5.7 3 1.1-6.3-4.6-4.5 6.4-.9z"/></svg></div>
+          <blockquote><p>Thank you for an AMAZING day out. The trip exceeded expectation. Would highly recommend this company to anyone wanting a fantastic day out exploring the waters near Phuket.</p></blockquote>
+          <figcaption><span class="rv-av" aria-hidden="true">S</span><span class="rv-who"><span class="rv-name">Sam L.</span>
+            <span class="rv-meta"><span class="rv-stars" role="img" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.8 5.8 6.4.9-4.6 4.5 1.1 6.3L12 17.3l-5.7 3 1.1-6.3-4.6-4.5 6.4-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.8 5.8 6.4.9-4.6 4.5 1.1 6.3L12 17.3l-5.7 3 1.1-6.3-4.6-4.5 6.4-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.8 5.8 6.4.9-4.6 4.5 1.1 6.3L12 17.3l-5.7 3 1.1-6.3-4.6-4.5 6.4-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.8 5.8 6.4.9-4.6 4.5 1.1 6.3L12 17.3l-5.7 3 1.1-6.3-4.6-4.5 6.4-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.8 5.8 6.4.9-4.6 4.5 1.1 6.3L12 17.3l-5.7 3 1.1-6.3-4.6-4.5 6.4-.9z"/></svg></span><span class="rv-src">Google review</span></span></span></figcaption>
+        </figure>
+        <figure class="rv-card">
           <blockquote><p>Had an amazing time with Oceanic Yacht! The crew was friendly, the yacht was beautiful, and the whole experience was so relaxing</p></blockquote>
-          <figcaption><span class="rv-name">Ppsaow</span><span class="rv-src">Google review</span></figcaption>
+          <figcaption><span class="rv-av" aria-hidden="true">P</span><span class="rv-who"><span class="rv-name">Ppsaow</span>
+            <span class="rv-meta"><span class="rv-stars" role="img" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.8 5.8 6.4.9-4.6 4.5 1.1 6.3L12 17.3l-5.7 3 1.1-6.3-4.6-4.5 6.4-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.8 5.8 6.4.9-4.6 4.5 1.1 6.3L12 17.3l-5.7 3 1.1-6.3-4.6-4.5 6.4-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.8 5.8 6.4.9-4.6 4.5 1.1 6.3L12 17.3l-5.7 3 1.1-6.3-4.6-4.5 6.4-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.8 5.8 6.4.9-4.6 4.5 1.1 6.3L12 17.3l-5.7 3 1.1-6.3-4.6-4.5 6.4-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.8 5.8 6.4.9-4.6 4.5 1.1 6.3L12 17.3l-5.7 3 1.1-6.3-4.6-4.5 6.4-.9z"/></svg></span><span class="rv-src">Google review</span></span></span></figcaption>
         </figure>
       </div>
       <a class="text-link hs-more" href="https://share.google/Q4GZVX6ea2oGVD5vI" target="_blank" rel="noopener noreferrer">Read every review on Google</a>
