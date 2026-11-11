@@ -731,8 +731,9 @@ svg { display: block; }
 
 
 .ty-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 30px; }
-.ty-card { position: relative; display: block; overflow: hidden; aspect-ratio: 4 / 5; border-radius: 4px; background: #0d2c3d; color: #fff; text-decoration: none; }
-.ty-card img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+.ty-card { position: relative; display: block; overflow: hidden; aspect-ratio: 1 / 1; border-radius: 4px; background: #0d2c3d; color: #fff; text-decoration: none; }
+
+.ty-card img { position: absolute; left: 0; right: 0; bottom: 0; display: block; width: 100%; height: calc(100% * var(--zoom, 1)); object-fit: cover; transform-origin: 50% 100%; transition: transform .6s ease; }
 .ty-card:hover img, .ty-card:focus-visible img { transform: scale(1.05); }
 .ty-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(6, 28, 40, 0) 42%, rgba(6, 28, 40, .78) 100%); }
 .ty-text { position: absolute; left: 14px; right: 14px; bottom: 14px; z-index: 1; display: grid; gap: 5px; }
@@ -1131,19 +1132,19 @@ svg { display: block; }
       </div>
       <div class="ty-grid">
         <a class="ty-card" href="fleet.html?type=motor">
-          <img src="assets/boats/caramel-58/hero.jpg" srcset="assets/boats/caramel-58/hero-480.webp 480w, assets/boats/caramel-58/hero-800.webp 800w, assets/boats/caramel-58/hero-1200.webp 1200w" width="2400" height="1440" sizes="(min-width: 900px) 25vw, 50vw" alt="Caramel 58 from above on turquoise water" style="object-position: 45% 50%" loading="lazy" decoding="async">
+          <img src="assets/boats/rose-65/amy-05-dji-0335.jpg" srcset="assets/boats/rose-65/amy-05-dji-0335-480.webp 480w, assets/boats/rose-65/amy-05-dji-0335-800.webp 800w, assets/boats/rose-65/amy-05-dji-0335-1200.webp 1200w" width="2400" height="1348" sizes="(min-width: 900px) 25vw, 50vw" alt="Rose 65 from above, her wake curving behind a jet ski" style="object-position: 50% 30%; --zoom: 1.0" loading="lazy" decoding="async">
           <span class="ty-text"><span class="ty-name">Motor yachts</span><span class="ty-count">25 yachts <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></span></span>
         </a>
         <a class="ty-card" href="fleet.html?type=superyacht">
-          <img src="assets/boats/panakie-150/hero.jpg" srcset="assets/boats/panakie-150/hero-480.webp 480w, assets/boats/panakie-150/hero-800.webp 800w, assets/boats/panakie-150/hero-1200.webp 1200w" width="2400" height="1600" sizes="(min-width: 900px) 25vw, 50vw" alt="Panakie 150 under the cliffs of Phang Nga Bay" style="object-position: 56% 60%" loading="lazy" decoding="async">
+          <img src="assets/boats/song-of-songs/a1-g-01.jpg" srcset="assets/boats/song-of-songs/a1-g-01-480.webp 480w, assets/boats/song-of-songs/a1-g-01-800.webp 800w, assets/boats/song-of-songs/a1-g-01-1200.webp 1200w" width="1926" height="2400" sizes="(min-width: 900px) 25vw, 50vw" alt="Song of Songs at anchor, a wakeboarder in front of her" style="object-position: 50% 28%; --zoom: 1.0" loading="lazy" decoding="async">
           <span class="ty-text"><span class="ty-name">Superyachts</span><span class="ty-count">5 yachts <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></span></span>
         </a>
         <a class="ty-card" href="fleet.html?type=catamaran">
-          <img src="assets/boats/pear-85/hero.jpg" srcset="assets/boats/pear-85/hero-480.webp 480w, assets/boats/pear-85/hero-800.webp 800w, assets/boats/pear-85/hero-1200.webp 1200w" width="2240" height="1260" sizes="(min-width: 900px) 25vw, 50vw" alt="Pear 85 from above on deep blue water" style="object-position: 45% 50%" loading="lazy" decoding="async">
+          <img src="assets/boats/apricity-53/hero.jpg" srcset="assets/boats/apricity-53/hero-480.webp 480w, assets/boats/apricity-53/hero-800.webp 800w, assets/boats/apricity-53/hero-1200.webp 1200w" width="2400" height="1600" sizes="(min-width: 900px) 25vw, 50vw" alt="Apricity 53 under way on deep blue water" style="object-position: 55% 100%; --zoom: 1.1" loading="lazy" decoding="async">
           <span class="ty-text"><span class="ty-name">Power catamarans</span><span class="ty-count">5 yachts <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></span></span>
         </a>
         <a class="ty-card" href="fleet.html?type=sport">
-          <img src="assets/boats/stay-gain-15/hero.jpg" srcset="assets/boats/stay-gain-15/hero-480.webp 480w, assets/boats/stay-gain-15/hero-800.webp 800w, assets/boats/stay-gain-15/hero-1200.webp 1200w" width="2400" height="1599" sizes="(min-width: 900px) 25vw, 50vw" alt="Stay Gain 15 at speed, a white wake behind her" style="object-position: 58% 50%" loading="lazy" decoding="async">
+          <img src="assets/boats/stay-gain-15/hero.jpg" srcset="assets/boats/stay-gain-15/hero-480.webp 480w, assets/boats/stay-gain-15/hero-800.webp 800w, assets/boats/stay-gain-15/hero-1200.webp 1200w" width="2400" height="1599" sizes="(min-width: 900px) 25vw, 50vw" alt="Stay Gain 15 at speed, a white wake behind her" style="object-position: 58% 100%; --zoom: 1.0" loading="lazy" decoding="async">
           <span class="ty-text"><span class="ty-name">Sport yachts</span><span class="ty-count">4 yachts <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></span></span>
         </a>
       </div>
