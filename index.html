@@ -729,6 +729,23 @@ svg { display: block; }
 }
 
 
+
+.ty-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 30px; }
+.ty-card { position: relative; display: block; overflow: hidden; aspect-ratio: 4 / 5; border-radius: 4px; background: #0d2c3d; color: #fff; text-decoration: none; }
+.ty-card img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+.ty-card:hover img, .ty-card:focus-visible img { transform: scale(1.05); }
+.ty-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(6, 28, 40, 0) 42%, rgba(6, 28, 40, .78) 100%); }
+.ty-text { position: absolute; left: 14px; right: 14px; bottom: 14px; z-index: 1; display: grid; gap: 5px; }
+.ty-name { font-size: 16px; font-weight: 700; letter-spacing: .06em; line-height: 1.2; text-transform: uppercase; }
+.ty-count { display: inline-flex; align-items: center; gap: 7px; color: #dbe9ec; font-size: 13px; font-weight: 600; }
+.ty-count .arrow { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; transition: transform .2s; }
+.ty-card:hover .ty-count .arrow { transform: translateX(3px); }
+.hs-charter .ty-grid + .hs-btn { margin-top: 30px; }
+@media (min-width: 900px) {
+  .ty-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin-top: 42px; }
+  .ty-text { left: 22px; right: 22px; bottom: 20px; }
+  .ty-name { font-size: 20px; }
+}
 .hs-onboard { background: var(--navy); color: #fff; overflow: hidden; }
 .hs-onboard .section-heading h2 { color: #fff; }
 .hs-onboard .section-label { color: var(--sea); }
@@ -1106,16 +1123,31 @@ svg { display: block; }
     </div>
   </section>
   <section class="hs-charter section-pad" id="yacht-charter" aria-labelledby="hs-charter-title">
-    <div class="wrap hs-charter-grid">
+    <div class="wrap">
       <div class="hs-charter-copy">
         <div class="section-label">Yacht charter</div>
         <h2 id="hs-charter-title">Explore Our Yacht Collection</h2>
         <p>39 private yachts out of Phuket, from 40 ft speedboats and catamarans to a 150 ft superyacht. Each one chartered whole, never shared.</p>
-        <a class="button hs-btn" href="fleet.html" aria-label="Discover the yachts"><span>Discover</span><svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></a>
       </div>
-      <figure class="hs-charter-photo">
-        <img src="assets/home/song-of-songs-brochure-1600.jpg" srcset="assets/home/song-of-songs-brochure-960.webp 960w, assets/home/song-of-songs-brochure-1600.webp 1600w" sizes="(min-width: 900px) 64vw, 100vw" width="1600" height="900" alt="A private superyacht under way" loading="lazy" decoding="async">
-      </figure>
+      <div class="ty-grid">
+        <a class="ty-card" href="fleet.html?type=motor">
+          <img src="assets/boats/caramel-58/hero.jpg" srcset="assets/boats/caramel-58/hero-480.webp 480w, assets/boats/caramel-58/hero-800.webp 800w, assets/boats/caramel-58/hero-1200.webp 1200w" width="2400" height="1440" sizes="(min-width: 900px) 25vw, 50vw" alt="Caramel 58 from above on turquoise water" style="object-position: 45% 50%" loading="lazy" decoding="async">
+          <span class="ty-text"><span class="ty-name">Motor yachts</span><span class="ty-count">25 yachts <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></span></span>
+        </a>
+        <a class="ty-card" href="fleet.html?type=superyacht">
+          <img src="assets/boats/panakie-150/hero.jpg" srcset="assets/boats/panakie-150/hero-480.webp 480w, assets/boats/panakie-150/hero-800.webp 800w, assets/boats/panakie-150/hero-1200.webp 1200w" width="2400" height="1600" sizes="(min-width: 900px) 25vw, 50vw" alt="Panakie 150 under the cliffs of Phang Nga Bay" style="object-position: 56% 60%" loading="lazy" decoding="async">
+          <span class="ty-text"><span class="ty-name">Superyachts</span><span class="ty-count">5 yachts <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></span></span>
+        </a>
+        <a class="ty-card" href="fleet.html?type=catamaran">
+          <img src="assets/boats/pear-85/hero.jpg" srcset="assets/boats/pear-85/hero-480.webp 480w, assets/boats/pear-85/hero-800.webp 800w, assets/boats/pear-85/hero-1200.webp 1200w" width="2240" height="1260" sizes="(min-width: 900px) 25vw, 50vw" alt="Pear 85 from above on deep blue water" style="object-position: 45% 50%" loading="lazy" decoding="async">
+          <span class="ty-text"><span class="ty-name">Power catamarans</span><span class="ty-count">5 yachts <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></span></span>
+        </a>
+        <a class="ty-card" href="fleet.html?type=sport">
+          <img src="assets/boats/stay-gain-15/hero.jpg" srcset="assets/boats/stay-gain-15/hero-480.webp 480w, assets/boats/stay-gain-15/hero-800.webp 800w, assets/boats/stay-gain-15/hero-1200.webp 1200w" width="2400" height="1599" sizes="(min-width: 900px) 25vw, 50vw" alt="Stay Gain 15 at speed, a white wake behind her" style="object-position: 58% 50%" loading="lazy" decoding="async">
+          <span class="ty-text"><span class="ty-name">Sport yachts</span><span class="ty-count">4 yachts <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></span></span>
+        </a>
+      </div>
+      <a class="button hs-btn" href="fleet.html" aria-label="Discover the yachts"><span>Discover</span><svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></a>
     </div>
   </section>
 
