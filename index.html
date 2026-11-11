@@ -728,6 +728,30 @@ svg { display: block; }
   .hs-dest-name { font-size: 26px; }
 }
 
+
+.hs-onboard { background: var(--navy); color: #fff; }
+.hs-onboard .section-heading h2 { color: #fff; }
+.hs-onboard .section-label { color: var(--sea); }
+.hs-onboard .section-heading .hs-onboard-lede { max-width: 560px; margin-top: 14px; color: #dbe9ec; opacity: 1; }
+.hs-onboard-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 28px; }
+.hs-onboard-tile { margin: 0; overflow: hidden; border-radius: 4px; background: #0d2c3d; aspect-ratio: 9 / 16; }
+.hs-onboard-tile video, .hs-onboard-tile img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.hs-onboard-tile img { object-position: 50% 78%; }
+.hs-onboard .hs-more { color: var(--sea); }
+.hs-howto { background: #fff; }
+.hs-steps { display: grid; gap: 26px; margin: 30px 0 0; padding: 0; list-style: none; counter-reset: none; }
+.hs-step { display: grid; grid-template-columns: 44px minmax(0, 1fr); column-gap: 16px; align-items: start; }
+.hs-step-n { grid-row: span 2; display: grid; place-items: center; width: 44px; height: 44px; border: 1.5px solid var(--navy); border-radius: 50%; color: var(--navy); font-weight: 700; }
+.hs-step h3 { margin: 0; color: var(--navy); font-size: 19px; font-weight: 700; line-height: 1.35; }
+.hs-step p { margin: 6px 0 0; color: #4F5E63; line-height: 1.6; }
+.hs-howto .hs-howto-btn { margin-top: 32px; }
+@media (max-width: 699.98px) { .hs-howto .hs-howto-btn { width: 100%; } }
+@media (min-width: 900px) {
+  .hs-onboard-grid { gap: 22px; margin-top: 38px; max-width: 900px; }
+  .hs-onboard-tile { aspect-ratio: 4 / 5; }
+  .hs-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; margin-top: 40px; }
+}
+
     
     .boat-card { position: relative; display: flex; flex-direction: column; min-width: 0; background: transparent; }
     .boat-card .boat-photo { position: relative; overflow: hidden; aspect-ratio: auto; border-radius: 4px; background: var(--ice); }
@@ -1009,7 +1033,7 @@ svg { display: block; }
       <div class="hs-charter-copy">
         <div class="section-label">Yacht charter</div>
         <h2 id="hs-charter-title">Explore Our Yacht Collection</h2>
-        <p>A selection of private yachts for meaningful moments at sea, quality time with your favourite people, and days spent exploring Phuket and the Andaman Sea.</p>
+        <p>39 private yachts out of Phuket, from 40 ft speedboats and catamarans to a 150 ft superyacht. Each one chartered whole, never shared.</p>
         <a class="button hs-btn" href="fleet.html" aria-label="Discover the yachts"><span>Discover</span><svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></a>
       </div>
       <figure class="hs-charter-photo">
@@ -1088,6 +1112,28 @@ svg { display: block; }
     </div>
   </section>
 
+  <section class="hs-onboard section-pad" id="on-board" aria-labelledby="hs-onboard-title">
+    <div class="wrap">
+      <header class="section-heading">
+        <div class="section-label">On board</div>
+        <h2 id="hs-onboard-title">A day on board, as it happened.</h2>
+        <p class="hs-onboard-lede">Filmed on our charters out of Phuket, by the people who were there.</p>
+      </header>
+      <div class="hs-onboard-grid">
+        <figure class="hs-onboard-tile">
+          <video class="hs-onboard-video" muted loop playsinline autoplay preload="none" poster="assets/video/onboard-poster.jpg" aria-hidden="true">
+            <source src="assets/video/onboard-hevc.mp4" type="video/mp4; codecs=hvc1">
+            <source src="assets/video/onboard.mp4" type="video/mp4">
+          </video>
+        </figure>
+        <figure class="hs-onboard-tile">
+          <img src="assets/home/onboard-golf.jpg" srcset="assets/home/onboard-golf-480.webp 480w, assets/home/onboard-golf-800.webp 800w, assets/home/onboard-golf.webp 1200w" sizes="100vw" width="1200" height="1741" alt="A guest drives a golf ball off the bow, crew watching, limestone islands behind" loading="lazy" decoding="async">
+        </figure>
+      </div>
+      <a class="text-link hs-more" href="https://www.instagram.com/reel/DXRBgS5CBOI/" target="_blank" rel="noopener noreferrer">Watched 1.3 million times on Instagram</a>
+    </div>
+  </section>
+
   <section class="hs-dests section-pad" id="destinations" aria-labelledby="hs-dests-title">
     <div class="wrap">
       <header class="section-heading">
@@ -1105,6 +1151,21 @@ svg { display: block; }
         </article>
       </div>
       <a class="text-link hs-more" href="phuket-island-hopping-private-yacht.html">See every destination</a>
+    </div>
+  </section>
+
+  <section class="hs-howto section-pad" id="how-it-works" aria-labelledby="hs-howto-title">
+    <div class="wrap">
+      <header class="section-heading">
+        <div class="section-label">Booking</div>
+        <h2 id="hs-howto-title">Three steps to the water.</h2>
+      </header>
+      <ol class="hs-steps">
+        <li class="hs-step"><span class="hs-step-n">1</span><h3>Send your date</h3><p>The date and the number of guests, on WhatsApp.</p></li>
+        <li class="hs-step"><span class="hs-step-n">2</span><h3>Choose your yacht</h3><p>We reply with the yachts free that day, and their prices.</p></li>
+        <li class="hs-step"><span class="hs-step-n">3</span><h3>Confirm</h3><p>A 50% deposit confirms the yacht. The rest is paid three working days before departure.</p></li>
+      </ol>
+      <a class="button hs-btn hs-howto-btn" href="https://wa.me/66644518232?text=Hi%2C%20I%27d%20like%20a%20private%20yacht%20in%20Phuket.%20Date%3A%20.%20Guests%3A%20" target="_blank" rel="noopener noreferrer"><span>Send your date on WhatsApp</span><svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></a>
     </div>
   </section>
 
