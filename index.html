@@ -739,6 +739,16 @@ svg { display: block; }
 .ty-name { font-size: 15px; font-weight: 700; letter-spacing: .08em; line-height: 1.25; text-transform: uppercase; }
 
 .ty-nw { white-space: nowrap; }
+
+.section-heading .hs-lede { max-width: 600px; margin-top: 14px; color: #4F5E63; font-size: 17px; line-height: 1.65; }
+
+.hs-charter .ty-card { position: relative; overflow: hidden; border-radius: 4px; }
+.hs-charter .ty-photo { border-radius: 0; }
+.hs-charter .ty-card::after { content: ""; position: absolute; inset: 0; background: rgba(6, 28, 40, .30); transition: background .3s; }
+.hs-charter .ty-card:hover::after, .hs-charter .ty-card:focus-visible::after { background: rgba(6, 28, 40, .45); }
+.hs-charter .ty-text { position: absolute; inset: 0; z-index: 1; display: grid; place-items: center; padding: 12px; text-align: center; }
+.hs-charter .ty-name { color: #fff; text-shadow: 0 1px 10px rgba(6, 28, 40, .55); }
+@media (max-width: 699.98px) { .hs-charter .ty-name { font-size: 13px; letter-spacing: .05em; } .hs-charter .ty-text { padding: 8px; } }
 .ty-name .arrow { display: inline-block; width: 13px; height: 13px; margin-left: 8px; vertical-align: 0; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; transition: transform .2s; }
 .ty-card:hover .ty-name .arrow { transform: translateX(3px); }
 .ty-count { display: block; color: var(--teal); font-size: 14px; font-weight: 600; line-height: 1.45; }
@@ -1162,11 +1172,11 @@ svg { display: block; }
   </section>
   <section class="hs-charter section-pad" id="yacht-charter" aria-labelledby="hs-charter-title">
     <div class="wrap">
-      <div class="hs-charter-copy">
+      <header class="section-heading">
         <div class="section-label">Yacht charter</div>
         <h2 id="hs-charter-title">Explore Our Yacht Collection</h2>
-        <p>39 private yachts out of Phuket, from 40 ft speedboats and catamarans to a 150 ft superyacht. Each one chartered whole, never shared.</p>
-      </div>
+        <p class="hs-lede">A selection of private yachts for meaningful moments at sea, quality time with your favourite people, and days spent exploring Phuket and the Andaman Sea.</p>
+      </header>
       <div class="ty-grid">
         <a class="ty-card" href="fleet.html?type=motor">
           <span class="ty-photo"><img src="assets/cards/rose-65.jpg" srcset="assets/cards/rose-65-480.webp 480w, assets/cards/rose-65-800.webp 800w, assets/cards/rose-65-1000.webp 1000w" width="1500" height="900" sizes="(min-width: 900px) 25vw, 50vw" alt="Rose 65 under way off an island, a jet ski beside her" loading="lazy" decoding="async"></span>
