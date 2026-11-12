@@ -737,8 +737,10 @@ svg { display: block; }
 .ty-card:hover img, .ty-card:focus-visible img { transform: scale(1.04); }
 .ty-text { display: grid; gap: 4px; padding-top: 12px; }
 .ty-name { font-size: 15px; font-weight: 700; letter-spacing: .08em; line-height: 1.25; text-transform: uppercase; }
-.ty-count { display: inline-flex; align-items: center; gap: 7px; color: var(--teal); font-size: 14px; font-weight: 600; }
-.ty-count .arrow { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; transition: transform .2s; }
+
+.ty-nw { white-space: nowrap; }
+.ty-count { display: block; color: var(--teal); font-size: 14px; font-weight: 600; line-height: 1.45; }
+.ty-count .arrow { display: inline-block; width: 12px; height: 12px; margin-left: 6px; vertical-align: -1px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; transition: transform .2s; }
 .ty-card:hover .ty-count .arrow { transform: translateX(3px); }
 .hs-charter .ty-grid + .hs-btn { margin-top: 30px; }
 .ds-card .ty-photo { aspect-ratio: 4 / 3; }
@@ -1166,19 +1168,19 @@ svg { display: block; }
       <div class="ty-grid">
         <a class="ty-card" href="fleet.html?type=motor">
           <span class="ty-photo"><img src="assets/cards/rose-65.jpg" srcset="assets/cards/rose-65-480.webp 480w, assets/cards/rose-65-800.webp 800w, assets/cards/rose-65-1000.webp 1000w" width="1500" height="900" sizes="(min-width: 900px) 25vw, 50vw" alt="Rose 65 under way off an island, a jet ski beside her" loading="lazy" decoding="async"></span>
-          <span class="ty-text"><span class="ty-name">Motor yachts</span><span class="ty-count">25 yachts <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></span></span>
+          <span class="ty-text"><span class="ty-name">Motor yachts</span><span class="ty-count">Comfort for any <span class="ty-nw">group<svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></span></span></span>
         </a>
         <a class="ty-card" href="fleet.html?type=superyacht">
           <span class="ty-photo"><img src="assets/cards/song-of-songs.jpg" srcset="assets/cards/song-of-songs-480.webp 480w, assets/cards/song-of-songs-800.webp 800w, assets/cards/song-of-songs-1000.webp 1000w" width="1500" height="900" sizes="(min-width: 900px) 25vw, 50vw" alt="Song of Songs at dusk among the Krabi islands" loading="lazy" decoding="async"></span>
-          <span class="ty-text"><span class="ty-name">Superyachts</span><span class="ty-count">5 yachts <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></span></span>
+          <span class="ty-text"><span class="ty-name">Superyachts</span><span class="ty-count">Space, service, <span class="ty-nw">privacy<svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></span></span></span>
         </a>
         <a class="ty-card" href="fleet.html?type=catamaran">
           <span class="ty-photo"><img src="assets/cards/apricity-53.jpg" srcset="assets/cards/apricity-53-480.webp 480w, assets/cards/apricity-53-800.webp 800w, assets/cards/apricity-53-1000.webp 1000w" width="1500" height="900" sizes="(min-width: 900px) 25vw, 50vw" alt="Apricity 53 under way on deep blue water" loading="lazy" decoding="async"></span>
-          <span class="ty-text"><span class="ty-name">Power catamarans</span><span class="ty-count">5 yachts <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></span></span>
+          <span class="ty-text"><span class="ty-name">Power catamarans</span><span class="ty-count">Stable and <span class="ty-nw">spacious<svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></span></span></span>
         </a>
         <a class="ty-card" href="fleet.html?type=sport">
           <span class="ty-photo"><img src="assets/cards/stay-gain-15.jpg" srcset="assets/cards/stay-gain-15-480.webp 480w, assets/cards/stay-gain-15-800.webp 800w, assets/cards/stay-gain-15-1000.webp 1000w" width="1080" height="648" sizes="(min-width: 900px) 25vw, 50vw" alt="Stay Gain 15 at anchor below a sea cliff" loading="lazy" decoding="async"></span>
-          <span class="ty-text"><span class="ty-name">Sport yachts</span><span class="ty-count">4 yachts <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></span></span>
+          <span class="ty-text"><span class="ty-name">Sport yachts</span><span class="ty-count">Fast island <span class="ty-nw">hopping<svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></span></span></span>
         </a>
       </div>
       <a class="button hs-btn" href="fleet.html" aria-label="Discover the yachts"><span>Discover</span><svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></a>
@@ -1402,27 +1404,27 @@ svg { display: block; }
       <div class="ty-grid ds-grid">
         <a class="ty-card ds-card" href="phi-phi-private-yacht.html">
           <span class="ty-photo"><img src="assets/destinations/phi-phi-islands/maya-bay-1200.jpg" srcset="assets/destinations/phi-phi-islands/maya-bay-1200-480.webp 480w, assets/destinations/phi-phi-islands/maya-bay-1200-800.webp 800w, assets/destinations/phi-phi-islands/maya-bay-1200.webp 1200w" width="1200" height="899" sizes="(min-width: 900px) 33vw, 50vw" alt="Maya Bay on Phi Phi Leh, turquoise water between sheer limestone cliffs" loading="lazy" decoding="async"></span>
-          <span class="ty-text"><span class="ty-name">Phi Phi Islands</span><span class="ty-count">Discover <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></span></span>
+          <span class="ty-text"><span class="ty-name">Phi Phi Islands</span><span class="ty-count"><span class="ty-nw">Discover<svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></span></span></span>
         </a>
         <a class="ty-card ds-card" href="phang-nga-bay-private-yacht.html">
           <span class="ty-photo"><img src="assets/destinations/phang-nga-bay-james-bond-island/james-bond-amy-1200.jpg" srcset="assets/destinations/phang-nga-bay-james-bond-island/james-bond-amy-1200-480.webp 480w, assets/destinations/phang-nga-bay-james-bond-island/james-bond-amy-1200-800.webp 800w, assets/destinations/phang-nga-bay-james-bond-island/james-bond-amy-1200.webp 1200w" width="1200" height="675" sizes="(min-width: 900px) 33vw, 50vw" alt="James Bond Island, the limestone tower of Ko Tapu rising from Phang Nga Bay" loading="lazy" decoding="async"></span>
-          <span class="ty-text"><span class="ty-name">James Bond Island</span><span class="ty-count">Discover <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></span></span>
+          <span class="ty-text"><span class="ty-name">James Bond Island</span><span class="ty-count"><span class="ty-nw">Discover<svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></span></span></span>
         </a>
         <a class="ty-card ds-card" href="racha-island-private-yacht.html">
           <span class="ty-photo"><img src="assets/destinations/racha-yai-racha-noi/racha-noi-amy-1200.jpg" srcset="assets/destinations/racha-yai-racha-noi/racha-noi-amy-1200-480.webp 480w, assets/destinations/racha-yai-racha-noi/racha-noi-amy-1200-800.webp 800w" width="1024" height="576" sizes="(min-width: 900px) 33vw, 50vw" alt="Racha Noi from above, white sand and clear turquoise water" loading="lazy" decoding="async"></span>
-          <span class="ty-text"><span class="ty-name">Racha Islands</span><span class="ty-count">Discover <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></span></span>
+          <span class="ty-text"><span class="ty-name">Racha Islands</span><span class="ty-count"><span class="ty-nw">Discover<svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></span></span></span>
         </a>
         <a class="ty-card ds-card" href="krabi-hong-island-private-yacht.html">
           <span class="ty-photo"><img src="assets/destinations/hong-island-krabi/hong-aerial-amy-1200.jpg" srcset="assets/destinations/hong-island-krabi/hong-aerial-amy-1200-480.webp 480w, assets/destinations/hong-island-krabi/hong-aerial-amy-1200-800.webp 800w, assets/destinations/hong-island-krabi/hong-aerial-amy-1200.webp 1200w" width="1200" height="675" sizes="(min-width: 900px) 33vw, 50vw" alt="Hong Island from above, a lagoon inside the limestone cliffs" loading="lazy" decoding="async"></span>
-          <span class="ty-text"><span class="ty-name">Hong Island</span><span class="ty-count">Discover <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></span></span>
+          <span class="ty-text"><span class="ty-name">Hong Island</span><span class="ty-count"><span class="ty-nw">Discover<svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></span></span></span>
         </a>
         <a class="ty-card ds-card" href="khai-islands-private-yacht.html">
           <span class="ty-photo"><img src="assets/destinations/khai-islands/khai-nok-amy-1200.jpg" srcset="assets/destinations/khai-islands/khai-nok-amy-1200-480.webp 480w, assets/destinations/khai-islands/khai-nok-amy-1200-800.webp 800w, assets/destinations/khai-islands/khai-nok-amy-1200.webp 1200w" width="1200" height="800" sizes="(min-width: 900px) 33vw, 50vw" alt="Khai Nok, a white sand spit and a small rocky island" loading="lazy" decoding="async"></span>
-          <span class="ty-text"><span class="ty-name">Khai Islands</span><span class="ty-count">Discover <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></span></span>
+          <span class="ty-text"><span class="ty-name">Khai Islands</span><span class="ty-count"><span class="ty-nw">Discover<svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></span></span></span>
         </a>
         <a class="ty-card ds-card" href="similan-islands-private-yacht.html">
           <span class="ty-photo"><img src="assets/destinations/similan-islands/koh-ba-ngu-amy-1200.jpg" srcset="assets/destinations/similan-islands/koh-ba-ngu-amy-1200-480.webp 480w, assets/destinations/similan-islands/koh-ba-ngu-amy-1200-800.webp 800w, assets/destinations/similan-islands/koh-ba-ngu-amy-1200.webp 1200w" width="1200" height="900" sizes="(min-width: 900px) 33vw, 50vw" alt="Koh Ba Ngu in the Similans, granite boulders on turquoise water" loading="lazy" decoding="async"></span>
-          <span class="ty-text"><span class="ty-name">Similan Islands</span><span class="ty-count">Discover <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></span></span>
+          <span class="ty-text"><span class="ty-name">Similan Islands</span><span class="ty-count"><span class="ty-nw">Discover<svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></span></span></span>
         </a>
       </div>
       <a class="text-link hs-more" href="phuket-island-hopping-private-yacht.html">See every destination</a>
