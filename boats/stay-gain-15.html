@@ -10,6 +10,7 @@
   <link rel="canonical" href="https://miljan-maksimovic.github.io/oceanic-odyssey-preview/boats/stay-gain-15.html">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../favicon-192.png">
   <link rel="apple-touch-icon" href="../apple-touch-icon.png">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Oceanic Odyssey">
@@ -1108,7 +1109,7 @@
   .of-brand { grid-column: auto; }
 }
 </style>
-<style id="preview-logo">
+<style id="site-logo">
 .home-mark img, .logo-mark { width: auto !important; height: 40px !important; filter: drop-shadow(0 1px 6px rgba(6, 28, 40, .45)); }
 .of-logo img { width: auto !important; height: 76px !important; }
 @media (min-width: 700px) { .home-mark img, .logo-mark { height: 50px !important; } }
@@ -1124,7 +1125,7 @@
 
   <header class="site-header">
     <div class="header-inner wrap">
-      <a class="wordmark" href="../index.html"><picture><source media="(max-width: 699.98px)" srcset="../assets/logo-k7-header.png"><img class="logo-mark" src="../assets/logo-k7-header.png" width="523" height="223" alt="Oceanic Odyssey" decoding="async"></picture><span class="sr-only">OCEANIC ODYSSEY</span></a>
+      <a class="wordmark" href="../index.html"><img class="logo-mark" src="../assets/logo-k7-header.png" width="523" height="223" alt="Oceanic Odyssey" decoding="async"><span class="sr-only">OCEANIC ODYSSEY</span></a>
       <nav class="nav-links" aria-label="Main navigation">
         <a class="nav-wide" href="../index.html">Home</a>
         <a href="../fleet.html">Yacht charter</a>
@@ -1340,7 +1341,6 @@
     <span>&copy; 2026 Oceanic Odyssey</span>
     <a href="../terms.html">Terms &amp; Conditions</a>
     <a href="../credits.html">Photo and map credits</a>
-    <a href="../partners.html">For hotels &amp; villas</a>
   </div>
 </footer>
 
@@ -1404,7 +1404,8 @@
             date: f.get('date'),
             guests: f.get('guests'),
             requests: f.get('requests') || '',
-            page: location.href.split('#')[0]
+            page: location.href.split('#')[0],
+            source: window.OO_SOURCE || ''
           };
           for (const [k, v] of f.entries()) {
             if (!(k in data) && !(k in service) && k !== 'botcheck' && v) data[k] = v;

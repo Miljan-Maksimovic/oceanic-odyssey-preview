@@ -10,6 +10,7 @@
   <meta name="theme-color" content="#0A2433">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Oceanic Odyssey">
@@ -111,7 +112,7 @@
             "name": "How many guests can come?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Up to 10 on Pandora, 15 on Jackie, 25 on Meraki, 30 on Matia Sou, and 44 on Simon. For 50 to 100 guests, Kefi, a party yacht built in 2025."
+              "text": "Up to 15 on Jackie, 25 on Meraki, 30 on Matia Sou, and 44 on Simon. For 50 to 100 guests, Kefi, a party yacht built in 2025."
             }
           }
         ]
@@ -1289,7 +1290,7 @@
   .of-brand { grid-column: auto; }
 }
 </style>
-<style id="preview-logo">
+<style id="site-logo">
 .home-mark img, .logo-mark { width: auto !important; height: 40px !important; filter: drop-shadow(0 1px 6px rgba(6, 28, 40, .45)); }
 .of-logo img { width: auto !important; height: 76px !important; }
 @media (min-width: 700px) { .home-mark img, .logo-mark { height: 50px !important; } }
@@ -1309,7 +1310,7 @@
 
   <header class="site-header">
     <div class="wrap header-inner">
-      <a class="wordmark" href="index.html"><picture><source media="(max-width: 699.98px)" srcset="assets/logo-k7-header.png"><img class="logo-mark" src="assets/logo-k7-header.png" width="523" height="223" alt="Oceanic Odyssey" decoding="async"></picture><span class="sr-only">OCEANIC ODYSSEY</span></a>
+      <a class="wordmark" href="index.html"><img class="logo-mark" src="assets/logo-k7-header.png" width="523" height="223" alt="Oceanic Odyssey" decoding="async"><span class="sr-only">OCEANIC ODYSSEY</span></a>
       <nav class="nav-links" aria-label="Main navigation">
         <a class="nav-wide" href="index.html">Home</a>
         <a href="fleet.html">Yacht charter</a>
@@ -1413,17 +1414,6 @@
             <tr>
               <td class="yacht-cell">
                 <div class="yacht-identity">
-                  <img src="assets/pandora.jpg" srcset="assets/pandora-480.webp 480w, assets/pandora-800.webp 800w, assets/pandora-1200.webp 1200w, assets/pandora-1600.webp 1600w" sizes="100vw" width="1080" height="675" alt="Pandora at speed on blue water" loading="lazy" decoding="async">
-                  <a class="text-link yacht-link" href="boats/pandora.html"><span>Pandora</span><svg class="arrow" aria-hidden="true"><use href="#arrow-icon"/></svg></a>
-                </div>
-              </td>
-              <td class="length-cell" data-label="Length">62 ft, built 2021</td>
-              <td class="guest-cell" data-label="Guests (day / overnight)">10 / 6</td>
-              <td data-label="Cabins">3</td>
-            </tr>
-            <tr>
-              <td class="yacht-cell">
-                <div class="yacht-identity">
                   <img src="assets/meraki.jpg" srcset="assets/meraki-480.webp 480w, assets/meraki-800.webp 800w, assets/meraki-1200.webp 1200w, assets/meraki-1600.webp 1600w" sizes="100vw" width="1080" height="756" alt="Meraki viewed from above on green water" loading="lazy" decoding="async">
                   <a class="text-link yacht-link" href="boats/meraki.html"><span>Meraki</span><svg class="arrow" aria-hidden="true"><use href="#arrow-icon"/></svg></a>
                 </div>
@@ -1479,7 +1469,7 @@
           </tbody>
         </table>
         <div class="fleet-guidance article-body reading-column">
-          <p>By group size: up to 10, Pandora; up to 15, Jackie or Sira; up to 20, Bruna; up to 25, Meraki; up to 30, Matia Sou for a butler on board; up to 44, Simon. We also book <a href="boats/pearl.html">Pearl</a>, 78 ft, for up to 20 guests, and <a href="boats/moonglider.html">Leopard 90</a>, for up to 18. Ask us which are still free for the night.</p>
+          <p>By group size: up to 15, Jackie or Sira; up to 20, Bruna; up to 25, Meraki; up to 30, Matia Sou for a butler on board; up to 44, Simon. We also book <a href="boats/pearl.html">Pearl</a>, 78 ft, for up to 20 guests, and <a href="boats/moonglider.html">Leopard 90</a>, for up to 18. Ask us which are still free for the night.</p>
         </div>
       </section>
 
@@ -1510,7 +1500,7 @@
         <div class="faq-list">
           <div class="faq-item article-body">
             <h3>How many guests can come?</h3>
-            <p>Up to 10 on Pandora, 15 on Jackie, 25 on Meraki, 30 on Matia Sou, and 44 on Simon. For 50 to 100 guests, Kefi, a party yacht built in 2025.</p>
+            <p>Up to 15 on Jackie, 25 on Meraki, 30 on Matia Sou, and 44 on Simon. For 50 to 100 guests, Kefi, a party yacht built in 2025.</p>
           </div>
         </div>
         <div class="article-body faq-after">
@@ -1604,7 +1594,6 @@
     <span>&copy; 2026 Oceanic Odyssey</span>
     <a href="terms.html">Terms &amp; Conditions</a>
     <a href="credits.html">Photo and map credits</a>
-    <a href="partners.html">For hotels &amp; villas</a>
   </div>
 </footer>
 
@@ -1668,7 +1657,8 @@
             date: f.get('date'),
             guests: f.get('guests'),
             requests: f.get('requests') || '',
-            page: location.href.split('#')[0]
+            page: location.href.split('#')[0],
+            source: window.OO_SOURCE || ''
           };
           for (const [k, v] of f.entries()) {
             if (!(k in data) && !(k in service) && k !== 'botcheck' && v) data[k] = v;

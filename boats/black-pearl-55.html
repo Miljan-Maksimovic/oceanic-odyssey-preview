@@ -10,6 +10,7 @@
   <link rel="canonical" href="https://miljan-maksimovic.github.io/oceanic-odyssey-preview/boats/black-pearl-55.html">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../favicon-192.png">
   <link rel="apple-touch-icon" href="../apple-touch-icon.png">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Oceanic Odyssey">
@@ -1068,6 +1069,50 @@
       .yp-shot-pill { right: 14px; bottom: 14px; font-size: 13px; padding: 8px 14px 8px 12px; }
     }
 
+    
+    .yp-prices { min-width: 0; margin-top: 48px; padding-top: 30px; border-top: 1px solid var(--line); }
+    .yp-prices-lead { margin-top: 10px; color: var(--muted); font-size: 16px; line-height: 1.7; }
+    .yp-routes { margin-top: 18px; color: var(--navy); font-size: 15px; font-weight: 700; line-height: 1.55; }
+    .yp-seasons { display: grid; gap: 8px; margin: 14px 0 0; padding: 0; list-style: none; }
+    .yp-season { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; padding: 14px 18px 15px; border-radius: 3px; background: #f2f6f7; }
+    .yp-season-name { color: var(--muted); font-size: 12.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    .yp-season-price { color: var(--navy); font-size: 20px; font-weight: 800; letter-spacing: -.02em; white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .yp-season.is-peak .yp-season-name { color: var(--teal); }
+    .yp-rate-table { width: 100%; margin-top: 16px; border-collapse: collapse; font-size: 15px; }
+    .yp-rate-table th, .yp-rate-table td { padding: 12px 0 12px 12px; border-bottom: 1px solid var(--line); text-align: right; font-variant-numeric: tabular-nums; }
+    .yp-rate-table th:first-child { padding-left: 0; text-align: left; }
+    .yp-rate-table thead th { color: var(--muted); font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; border-bottom: 2px solid var(--navy); }
+    .yp-rate-table tbody th, .yp-rate-table td { color: var(--navy); font-weight: 700; }
+    .yp-price-notes { display: grid; gap: 4px; margin: 14px 0 0; padding: 0; list-style: none; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .yp-inc { display: grid; gap: 14px; margin-top: 26px; }
+    .yp-inc-box { padding: 20px 20px 16px; border: 1px solid var(--line); border-radius: 3px; }
+    .yp-inc-box.is-in { border-color: #cfeae2; background: #eef8f5; }
+    .yp-inc-box h3 { color: var(--teal); font-size: 12.5px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+    .yp-inc-box.is-out { background: #f5f7f8; }
+    .yp-inc-box.is-out h3 { color: var(--muted); }
+    .yp-inc-box ul { display: grid; gap: 9px; margin: 12px 0 0; padding: 0; list-style: none; }
+    .yp-inc-box li { display: flex; align-items: flex-start; gap: 10px; color: var(--ink); font-size: 15px; line-height: 1.45; }
+    .yp-mark { flex: none; margin-top: 2px; }
+    .is-in .yp-mark circle { fill: var(--teal); }
+    .is-in .yp-mark path { fill: none; stroke: #fff; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .is-out .yp-mark circle { fill: none; stroke: #9aa8ae; stroke-width: 1.3; }
+    .is-out .yp-mark path { stroke: #9aa8ae; stroke-width: 1.5; stroke-linecap: round; }
+    @media (max-width: 599px) {
+      .yp-rate-table thead { display: none; }
+      .yp-rate-table tr { display: block; padding: 10px 0; border-bottom: 1px solid var(--line); }
+      .yp-rate-table th, .yp-rate-table td { display: flex; justify-content: space-between; padding: 4px 0; border: 0; text-align: left; }
+      .yp-rate-table td::before { content: attr(data-label); color: var(--muted); font-weight: 500; }
+    }
+    @media (min-width: 600px) {
+      .yp-seasons { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+      .yp-season { gap: 6px; padding: 18px 20px; }
+      .yp-season-price { font-size: 22px; }
+      .yp-inc { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 16px; }
+    }
+    @media (min-width: 900px) {
+      .yp-prices { margin-top: 54px; padding-top: 32px; }
+    }
+
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -1108,7 +1153,7 @@
   .of-brand { grid-column: auto; }
 }
 </style>
-<style id="preview-logo">
+<style id="site-logo">
 .home-mark img, .logo-mark { width: auto !important; height: 40px !important; filter: drop-shadow(0 1px 6px rgba(6, 28, 40, .45)); }
 .of-logo img { width: auto !important; height: 76px !important; }
 @media (min-width: 700px) { .home-mark img, .logo-mark { height: 50px !important; } }
@@ -1124,7 +1169,7 @@
 
   <header class="site-header">
     <div class="header-inner wrap">
-      <a class="wordmark" href="../index.html"><picture><source media="(max-width: 699.98px)" srcset="../assets/logo-k7-header.png"><img class="logo-mark" src="../assets/logo-k7-header.png" width="523" height="223" alt="Oceanic Odyssey" decoding="async"></picture><span class="sr-only">OCEANIC ODYSSEY</span></a>
+      <a class="wordmark" href="../index.html"><img class="logo-mark" src="../assets/logo-k7-header.png" width="523" height="223" alt="Oceanic Odyssey" decoding="async"><span class="sr-only">OCEANIC ODYSSEY</span></a>
       <nav class="nav-links" aria-label="Main navigation">
         <a class="nav-wide" href="../index.html">Home</a>
         <a href="../fleet.html">Yacht charter</a>
@@ -1182,6 +1227,51 @@
           <figure><a class="yp-shot" href="../assets/boats/black-pearl-55/amy-09-w21tvhfw-1600.webp"><img src="../assets/boats/black-pearl-55/amy-09-w21tvhfw.jpg" srcset="../assets/boats/black-pearl-55/amy-09-w21tvhfw-480.webp 480w, ../assets/boats/black-pearl-55/amy-09-w21tvhfw-800.webp 800w, ../assets/boats/black-pearl-55/amy-09-w21tvhfw-1200.webp 1200w" sizes="(min-width: 600px) 50vw, 86vw" alt="Black Pearl 55, photo 12" width="2400" height="1600" loading="lazy" decoding="async"></a></figure>
           <figure><a class="yp-shot" href="../assets/boats/black-pearl-55/amy-10-ynllywag.webp"><img src="../assets/boats/black-pearl-55/amy-10-ynllywag.jpg" srcset="../assets/boats/black-pearl-55/amy-10-ynllywag-480.webp 480w, ../assets/boats/black-pearl-55/amy-10-ynllywag-800.webp 800w, ../assets/boats/black-pearl-55/amy-10-ynllywag-1200.webp 1200w" sizes="(min-width: 600px) 50vw, 86vw" alt="Black Pearl 55, photo 13" width="1600" height="2400" loading="lazy" decoding="async"></a></figure>
         </div>
+
+      <section class="yp-prices" id="prices" aria-labelledby="prices-heading">
+          <h2 class="yp-h2" id="prices-heading">Prices and what's included</h2>
+          <p class="yp-prices-lead">A full day of 8 hours, the whole yacht for your group.</p>
+          <p class="yp-routes">The same price for Phang Nga Bay, Krabi 4 Islands, Racha or Phi Phi.</p>
+          <ul class="yp-seasons">
+            <li class="yp-season"><span class="yp-season-name">May to Oct</span><span class="yp-season-price">120,000 THB</span></li>
+            <li class="yp-season"><span class="yp-season-name">Nov to Apr</span><span class="yp-season-price">140,000 THB</span></li>
+            <li class="yp-season is-peak"><span class="yp-season-name">Peak, 10 Dec to 10 Jan</span><span class="yp-season-price">160,000 THB</span></li>
+          </ul>
+          <ul class="yp-price-notes">
+            <li>Prices cover 1 to 8 guests. Each extra guest: 2,000 THB, up to 20 guests.</li>
+            <li>Prices are subject to change.</li>
+          </ul>
+          <div class="yp-inc">
+            <div class="yp-inc-box is-in">
+              <h3>Included</h3>
+              <ul>
+              <li><svg class="yp-mark" aria-hidden="true" viewBox="0 0 16 16" width="16" height="16"><circle cx="8" cy="8" r="8"/><path d="M4.6 8.2l2.2 2.2 4.6-4.7"/></svg><span>Captain and crew</span></li>
+              <li><svg class="yp-mark" aria-hidden="true" viewBox="0 0 16 16" width="16" height="16"><circle cx="8" cy="8" r="8"/><path d="M4.6 8.2l2.2 2.2 4.6-4.7"/></svg><span>Towels</span></li>
+              <li><svg class="yp-mark" aria-hidden="true" viewBox="0 0 16 16" width="16" height="16"><circle cx="8" cy="8" r="8"/><path d="M4.6 8.2l2.2 2.2 4.6-4.7"/></svg><span>Thai lunch</span></li>
+              <li><svg class="yp-mark" aria-hidden="true" viewBox="0 0 16 16" width="16" height="16"><circle cx="8" cy="8" r="8"/><path d="M4.6 8.2l2.2 2.2 4.6-4.7"/></svg><span>Water, soft drinks, coffee and tea</span></li>
+              <li><svg class="yp-mark" aria-hidden="true" viewBox="0 0 16 16" width="16" height="16"><circle cx="8" cy="8" r="8"/><path d="M4.6 8.2l2.2 2.2 4.6-4.7"/></svg><span>Fresh fruit and snacks</span></li>
+              <li><svg class="yp-mark" aria-hidden="true" viewBox="0 0 16 16" width="16" height="16"><circle cx="8" cy="8" r="8"/><path d="M4.6 8.2l2.2 2.2 4.6-4.7"/></svg><span>WiFi</span></li>
+              <li><svg class="yp-mark" aria-hidden="true" viewBox="0 0 16 16" width="16" height="16"><circle cx="8" cy="8" r="8"/><path d="M4.6 8.2l2.2 2.2 4.6-4.7"/></svg><span>Snorkel gear</span></li>
+              <li><svg class="yp-mark" aria-hidden="true" viewBox="0 0 16 16" width="16" height="16"><circle cx="8" cy="8" r="8"/><path d="M4.6 8.2l2.2 2.2 4.6-4.7"/></svg><span>Resident DJ</span></li>
+              <li><svg class="yp-mark" aria-hidden="true" viewBox="0 0 16 16" width="16" height="16"><circle cx="8" cy="8" r="8"/><path d="M4.6 8.2l2.2 2.2 4.6-4.7"/></svg><span>Life jackets</span></li>
+              <li><svg class="yp-mark" aria-hidden="true" viewBox="0 0 16 16" width="16" height="16"><circle cx="8" cy="8" r="8"/><path d="M4.6 8.2l2.2 2.2 4.6-4.7"/></svg><span>Travel insurance</span></li>
+              <li><svg class="yp-mark" aria-hidden="true" viewBox="0 0 16 16" width="16" height="16"><circle cx="8" cy="8" r="8"/><path d="M4.6 8.2l2.2 2.2 4.6-4.7"/></svg><span>Transport for 10 guests</span></li>
+              <li><svg class="yp-mark" aria-hidden="true" viewBox="0 0 16 16" width="16" height="16"><circle cx="8" cy="8" r="8"/><path d="M4.6 8.2l2.2 2.2 4.6-4.7"/></svg><span>VAT at 7%</span></li>
+              </ul>
+            </div>
+            <div class="yp-inc-box is-out">
+              <h3>Not included</h3>
+              <ul>
+              <li><svg class="yp-mark" aria-hidden="true" viewBox="0 0 16 16" width="16" height="16"><circle cx="8" cy="8" r="7.3"/><path d="M5.6 5.6l4.8 4.8M10.4 5.6l-4.8 4.8"/></svg><span>Alcohol: beer, wine and spirits</span></li>
+              <li><svg class="yp-mark" aria-hidden="true" viewBox="0 0 16 16" width="16" height="16"><circle cx="8" cy="8" r="7.3"/><path d="M5.6 5.6l4.8 4.8M10.4 5.6l-4.8 4.8"/></svg><span>National park fees</span></li>
+              <li><svg class="yp-mark" aria-hidden="true" viewBox="0 0 16 16" width="16" height="16"><circle cx="8" cy="8" r="7.3"/><path d="M5.6 5.6l4.8 4.8M10.4 5.6l-4.8 4.8"/></svg><span>Transport for more than 10 guests</span></li>
+              <li><svg class="yp-mark" aria-hidden="true" viewBox="0 0 16 16" width="16" height="16"><circle cx="8" cy="8" r="7.3"/><path d="M5.6 5.6l4.8 4.8M10.4 5.6l-4.8 4.8"/></svg><span>Water toys other than snorkel gear</span></li>
+              <li><svg class="yp-mark" aria-hidden="true" viewBox="0 0 16 16" width="16" height="16"><circle cx="8" cy="8" r="7.3"/><path d="M5.6 5.6l4.8 4.8M10.4 5.6l-4.8 4.8"/></svg><span>Extra hours beyond 8</span></li>
+              <li><svg class="yp-mark" aria-hidden="true" viewBox="0 0 16 16" width="16" height="16"><circle cx="8" cy="8" r="7.3"/><path d="M5.6 5.6l4.8 4.8M10.4 5.6l-4.8 4.8"/></svg><span>Overnight stays</span></li>
+              </ul>
+            </div>
+          </div>
+      </section>
 
       <aside class="yp-request" aria-labelledby="request-name">
         <div class="yp-card">
@@ -1335,7 +1425,6 @@
     <span>&copy; 2026 Oceanic Odyssey</span>
     <a href="../terms.html">Terms &amp; Conditions</a>
     <a href="../credits.html">Photo and map credits</a>
-    <a href="../partners.html">For hotels &amp; villas</a>
   </div>
 </footer>
 
@@ -1399,7 +1488,8 @@
             date: f.get('date'),
             guests: f.get('guests'),
             requests: f.get('requests') || '',
-            page: location.href.split('#')[0]
+            page: location.href.split('#')[0],
+            source: window.OO_SOURCE || ''
           };
           for (const [k, v] of f.entries()) {
             if (!(k in data) && !(k in service) && k !== 'botcheck' && v) data[k] = v;
